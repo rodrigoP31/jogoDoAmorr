@@ -51,37 +51,50 @@
 
   <p id="mensagem"></p>
 
-  <script>
-    const botaoNao = document.getElementById('nao');
-    const botaoSim = document.getElementById('sim');
-    const mensagem = document.getElementById('mensagem');
+<script>
+  const botaoNao = document.getElementById('nao');
+  const botaoSim = document.getElementById('sim');
+  const mensagem = document.getElementById('mensagem');
 
-    botaoNao.addEventListener('mouseover', () => {
-      const larguraMax = window.innerWidth - botaoNao.offsetWidth;
-      const alturaMax = window.innerHeight - botaoNao.offsetHeight;
+  let velocidade = 1; // começa normal
 
-      const novaPosicaoX = Math.random() * larguraMax;
-      const novaPosicaoY = Math.random() * alturaMax;
+  function moverBotao() {
+    const larguraMax = window.innerWidth - botaoNao.offsetWidth;
+    const alturaMax = window.innerHeight - botaoNao.offsetHeight;
 
-      botaoNao.style.position = 'absolute';
-      botaoNao.style.left = `${novaPosicaoX}px`;
-      botaoNao.style.top = `${novaPosicaoY}px`;
-    });
+    const novaPosicaoX = Math.random() * larguraMax;
+    const novaPosicaoY = Math.random() * alturaMax;
 
-    botaoSim.addEventListener('click', () => {
-      mensagem.style.display = 'block';
-      mensagem.textContent = 'Eu sabia que você diria SIM!';
+    botaoNao.style.position = 'absolute';
+    botaoNao.style.left = `${novaPosicaoX}px`;
+    botaoNao.style.top = `${novaPosicaoY}px`;
+  }
 
-      setTimeout(() => {
-        window.location.href = "https://www.youtube.com/watch?v=KXw8CRapg7k";
-      }, 3000);
-    });
+  // Evento para celular (toque)
+  botaoNao.addEventListener('touchstart', (e) => {
+    e.preventDefault(); // impede clique normal
+    velocidade += 0.5; // aumenta a velocidade
 
-    botaoNao.addEventListener('click', () => {
-      mensagem.style.display = 'block';
-      mensagem.textContent = 'Ah, que pena!';
-    });
-  </script>
+    for (let i = 0; i < velocidade; i++) {
+      moverBotao();
+    }
+  });
+
+  // Mantém funcionando no PC também
+  botaoNao.addEventListener('mouseover', () => {
+    moverBotao();
+  });
+
+  botaoSim.addEventListener('click', () => {
+    mensagem.style.display = 'block';
+    mensagem.textContent = 'Eu sabia que você diria SIM!';
+
+    setTimeout(() => {
+      window.location.href = "https://www.youtube.com/watch?v=KXw8CRapg7k";
+    }, 3000);
+  });
+</script>
 
 </body>
 </html>
+
