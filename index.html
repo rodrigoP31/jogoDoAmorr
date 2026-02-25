@@ -6,13 +6,50 @@
   <link rel="icon" href="img/apoe1.png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <title>HAHA</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .botoes {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #mensagem {
+      margin-top: 20px;
+      display: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  </style>
 </head>
+
+<body>
+
   <h1>DEIXAR EU IR?</h1>
+
   <div class="botoes">
     <button id="sim">BORA!!</button>
     <button id="nao">NÃO!</button>
   </div>
-  <p id="mensagem">Agora não tem mais escapatória!</p>
+
+  <p id="mensagem"></p>
 
   <script>
     const botaoNao = document.getElementById('nao');
@@ -22,7 +59,7 @@
     botaoNao.addEventListener('mouseover', () => {
       const larguraMax = window.innerWidth - botaoNao.offsetWidth;
       const alturaMax = window.innerHeight - botaoNao.offsetHeight;
-      
+
       const novaPosicaoX = Math.random() * larguraMax;
       const novaPosicaoY = Math.random() * alturaMax;
 
@@ -35,10 +72,9 @@
       mensagem.style.display = 'block';
       mensagem.textContent = 'Eu sabia que você diria SIM!';
 
-      // Após 3 segundos, redireciona para o link do YouTube
       setTimeout(() => {
         window.location.href = "https://www.youtube.com/watch?v=KXw8CRapg7k";
-      }, 3000); // 3000 ms = 3 segundos
+      }, 3000);
     });
 
     botaoNao.addEventListener('click', () => {
@@ -49,4 +85,3 @@
 
 </body>
 </html>
-
