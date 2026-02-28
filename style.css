@@ -13,7 +13,7 @@ body {
   
   h1 {
     font-size: 40px;
-    color: #FF69B4;
+    color: #000000;
     margin-bottom: 40px;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   }
@@ -61,4 +61,5 @@ body {
     font-weight: bold;
     text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
   }
+
   
